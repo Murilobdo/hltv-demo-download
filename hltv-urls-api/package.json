@@ -1,0 +1,24 @@
+{
+  "name": "hltv-urls-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Murilobdo/make-urls-hltv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Murilobdo/make-urls-hltv/issues"
+  },
+  "homepage": "https://github.com/Murilobdo/make-urls-hltv#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hltv": "^2.19.4"
+  }
+}

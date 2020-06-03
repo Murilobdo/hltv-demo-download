@@ -1,0 +1,9 @@
+
+#arquivos para serem ignorados da api de urls
+hltv-urls-api/node_modules/
+hltv-urls-api/.vscode/
+
+#arquivos para serem ignorados do web scrapping
+hltv-web-scrapping/.vscode/
+hltv-web-scrapping/debug.log
+hltv-web-scrapping/__pycache__/
