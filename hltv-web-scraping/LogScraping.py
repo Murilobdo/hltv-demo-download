@@ -1,4 +1,4 @@
-class LogScrapping:
+class LogScraping:
     
     #construtor
     def __init__(self):

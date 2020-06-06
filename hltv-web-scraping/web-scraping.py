@@ -1,7 +1,7 @@
 import time
 import requests as request
 from selenium import webdriver
-import LogScrapping
+import LogScraping
 
 #executable_path = caminho onde esta o driver executavel do seu navegador 
 driver = webdriver.Chrome(executable_path='C:\Program Files\chromedriver\chromedriver.exe')
@@ -10,7 +10,7 @@ driver = webdriver.Chrome(executable_path='C:\Program Files\chromedriver\chromed
 urls = request.get('http://localhost:3000/Results/').json()
 
 #objeto de log
-log = LogScrapping.LogScrapping()
+log = LogScraping.LogScraping()
 
 #count = 0
 for url in urls['result']:
