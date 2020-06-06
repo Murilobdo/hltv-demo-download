@@ -4,6 +4,6 @@ hltv-urls-api/node_modules/
 hltv-urls-api/.vscode/
 
 #arquivos para serem ignorados do web scrapping
-hltv-web-scrapping/.vscode/
-hltv-web-scrapping/debug.log
-hltv-web-scrapping/__pycache__/
+hltv-web-scraping/.vscode/
+hltv-web-scraping/debug.log
+hltv-web-scraping/__pycache__/
