@@ -7,3 +7,4 @@ hltv-urls-api/.vscode/
 hltv-web-scraping/.vscode/
 hltv-web-scraping/debug.log
 hltv-web-scraping/__pycache__/
+.vscode/
