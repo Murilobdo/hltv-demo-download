@@ -1,16 +1,17 @@
 import time
 import requests as request
 from selenium import webdriver
-import LogScraping
+from webdriver_manager.chrome import ChromeDriverManager
+from Log import LogScraping
 
 #executable_path = caminho onde esta o driver executavel do seu navegador 
-driver = webdriver.Chrome(executable_path='C:\Program Files\chromedriver\chromedriver.exe')
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 #api de geração de urls do hltv github: https://github.com/Murilobdo/make-urls-hltv
 urls = request.get('http://localhost:3000/Results/').json()
 
 #objeto de log
-log = LogScraping.LogScraping()
+log = LogScraping()
 
 #count = 0
 for url in urls['result']:
@@ -30,7 +31,7 @@ for url in urls['result']:
     #if count >= 5:
         #break
     
-    time.sleep(45)
+    #time.sleep(45)
     
 print(log.listAll())
     

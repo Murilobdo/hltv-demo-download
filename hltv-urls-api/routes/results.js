@@ -5,27 +5,28 @@ const {HLTV} = require('hltv');
 
 const getResults = () => {
 
-    listResult = []
+    listResult = [];
     let date = new Date();
     let startDateString = date.getFullYear() + "/" + (date.getMonth()-1) + "/" + date.getDay();
     let endDateString = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDay();
+    // let startDateString = 2018 + "/" + (date.getMonth() - 1) + "/" + date.getDay();
+    // let endDateString = 2018 + "/" + date.getMonth() + "/" + date.getDay();
     
-    let filter = {startDate: startDateString, endDate: endDateString};
+    var filter = {startDate: startDateString, endDate: endDateString};
+    
+    HLTV.getResults(filter).then(async res => {
 
-    
-    HLTV.getResults(filter).then(res => {
-        for(let i = 0; i < res.length; i++){
-    
-            id = res[i]['id'];
-            teams = `${res[i]['team1']['name']}-vs-${res[i]['team2']['name']}`;
-            eventName = `${res[i]['event']['name']}`;
-    
-            uri = `https://www.hltv.org/matches/${id}/${teams}-${eventName}`
-                .replace(/\s/g,'-').toLowerCase();
-            
-                listResult.push(uri);
+        listIds = [];
+        for(let i=0; i< res.length; i++){
+            listIds.push(res[i]['id']);
         }
-
+        
+        listIds.forEach(async id => {
+            let uri = await getMatch(id);
+            console.log(uri);
+            listResult.push(uri);
+        });
+        
         router.get('/', (req, res, next) => {
             res.status(200).send({
                 result: listResult
@@ -33,6 +34,24 @@ const getResults = () => {
         });
     });
 }
+
+getMatch = async (AId) => {
+    return new Promise((resolve, reject) => {
+        HLTV.getMatch({id: AId}).then(resMatch => {
+            id = resMatch['id'];
+            teams = `${resMatch['team1']['name']}-vs-${resMatch['team2']['name']}`;
+            eventName = `${resMatch['event']['name']}`;
+            
+            uri = `https://www.hltv.org/matches/${id}/${teams}-${eventName}`
+                    .replace(/\s/g,'-').toLowerCase();
+
+            resolve(uri);
+        }).catch((err) =>{
+            reject("Erro: " + err);
+        });
+    });
+}
+
 getResults();
 module.exports = router;
 
