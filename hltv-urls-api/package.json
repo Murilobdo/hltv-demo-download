@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/Murilobdo/make-urls-hltv#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "hltv": "^2.19.4"
   }
 }
